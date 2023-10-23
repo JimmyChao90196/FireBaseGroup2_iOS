@@ -12,14 +12,17 @@ import UIKit
 class FirestoreManager {
     static let shared = FirestoreManager()
     
+    let uuId = UUID().uuidString
+    
     let db =  Firestore.firestore()
     
     var articleRef: DocumentReference {
         
-        db.collection("articles").document()
+        db.collection("articles").document(uuId)
     }
+    
     var documentID: String {
-        "\(articleRef.documentID)"
+        "\(uuId)"
     }
     
     var article: Article? {
@@ -31,12 +34,15 @@ class FirestoreManager {
     private func publishData() {
         
         do {
+            
             let ref = db.collection("Jimmy").document(documentID)
             try ref.setData(from: article){ (error) in
                 if let error = error {
                     print("There was an issue saving data to firestore, \(error)")
                 } else {
+                    
                     print("Successfully saved data")
+                    self.fetchData()
                     
                 }
             }
@@ -62,11 +68,9 @@ class FirestoreManager {
                             
                             let data = doc.data()
                             print(data)
-                            
                         }
                     }
                 }
             })
-        
-    }
+    }    
 }
