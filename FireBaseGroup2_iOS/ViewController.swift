@@ -11,17 +11,10 @@ import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-enum Tags: String, CaseIterable {
-    case beauty = "Beauty"
-    case gossiping = "Gossiping"
-    case schoolLife = "School Life"
-    
-}
 
 class ViewController: UIViewController {
     
     let firestoreManager = FirestoreManager.shared
-    
     
     private let titleTextField: UITextField = {
         let titleTextField = UITextField()
