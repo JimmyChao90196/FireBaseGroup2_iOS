@@ -31,11 +31,21 @@ struct Article: Codable {
     }
     
     init( id: String, title: String, content: String, tag: [String], createdTime: Timestamp) {
-        self.authorId = "Jimmy_83935"
+        self.authorId = "Jimmy-83935"
         self.createdTime = createdTime
         self.id = id
         self.title = title
         self.content = content
         self.tag = tag
     }
+}
+
+
+
+
+
+struct User: Codable{
+    var id: String
+    var email: String
+    var name: String
 }

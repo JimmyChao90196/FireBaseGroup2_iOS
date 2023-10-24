@@ -36,8 +36,7 @@ class FirestoreManager {
     private func publishData() {
         
         do {
-            let ref = db.collection("articles").document(documentID)
-            try ref.setData(from: article){ (error) in
+            try db.collection("articles").document(documentID).setData(from: article){ (error) in
                 if let error = error {
                     print("There was an issue saving data to firestore, \(error)")
                 } else {
