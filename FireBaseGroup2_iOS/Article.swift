@@ -22,17 +22,17 @@ struct Article: Codable {
         case id
         case title
         case content
-        case authorId = "author_id"
         case tag
+        case authorId = "author_id"
         case createdTime = "created_time"
     }
     
     init( id: String, title: String, content: String, tag: [String], createdTime: Timestamp) {
+        self.authorId = "Jimmy"
+        self.createdTime = createdTime
         self.id = id
         self.title = title
         self.content = content
         self.tag = tag
-        self.authorId = "Jimmy"
-        self.createdTime = createdTime
     }
 }

@@ -7,54 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DF981F3B-6CE2-4D48-818A-DF0ED3909E65"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FireBaseGroup2_iOS/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "publishButtonPressed(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DF981F3B-6CE2-4D48-818A-DF0ED3909E65 - 970095701338b159"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FireBaseGroup2_iOS.ViewController.publishButtonPressed(__C.UIButton) -&gt; ()"
-                  moduleName = "FireBaseGroup2_iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jimmychao/Desktop/AppWorks_Shcool/FireBaseGroup2_iOS/FireBaseGroup2_iOS/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "1148">
-               </Location>
-               <Location
-                  uuid = "DF981F3B-6CE2-4D48-818A-DF0ED3909E65 - 970095701338b159"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FireBaseGroup2_iOS.ViewController.publishButtonPressed(__C.UIButton) -&gt; ()"
-                  moduleName = "FireBaseGroup2_iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jimmychao/Desktop/AppWorks_Shcool/FireBaseGroup2_iOS/FireBaseGroup2_iOS/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "1136">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "76114D7B-EEF7-4683-A2F5-C4EB61679CEB"
             shouldBeEnabled = "No"
             ignoreCount = "0"

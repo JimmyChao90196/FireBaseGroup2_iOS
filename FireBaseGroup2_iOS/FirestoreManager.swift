@@ -43,7 +43,6 @@ class FirestoreManager {
                     
                     print("Successfully saved data")
                     self.fetchData()
-                    
                 }
             }
             

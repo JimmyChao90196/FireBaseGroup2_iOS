@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     }()
     
     
-    // MARK: - View Load
+    //MARK: - viewDidLoad -
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -71,7 +71,6 @@ class ViewController: UIViewController {
         
         view.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
-        
         NSLayoutConstraint.activate([
             
             titleTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
@@ -89,17 +88,13 @@ class ViewController: UIViewController {
             publishButton.topAnchor.constraint(equalTo: tagField.bottomAnchor, constant: 30),
             publishButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             publishButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-            
         ])
     }
-    
     
     private func setUpActions() {
         publishButton.addTarget(self, action: #selector(publishButtonPressed), for: .touchUpInside)
     }
     
-    
-
     // MARK: - Button pressed -
     @objc func publishButtonPressed(_ sender: UIButton) {
         
@@ -110,8 +105,6 @@ class ViewController: UIViewController {
         
         let tagArray = tag.components(separatedBy: " ")
         
-    
-      
         firestoreManager.article = Article(
             id: firestoreManager.documentID,
             title: title,
@@ -123,8 +116,7 @@ class ViewController: UIViewController {
 }
 
 
-
-
+//MARK: - Delegate methods -
 extension ViewController: UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField) {
