@@ -119,7 +119,6 @@ class FirestoreManager {
     func sendRequest(friendEmail: String){
         let requestRef = db.collection(collectionId).document(friendEmail)
         
-        // Atomically add a new region to the "regions" array field.
         requestRef.updateData([
             "requests": FieldValue.arrayUnion([email])
         ])
@@ -128,8 +127,18 @@ class FirestoreManager {
     
     
  //MARK: - update friend -
-    func updateFriends(){
+    func updateMyFriends(newEmail: String){
         let friendRef = db.collection(collectionId).document(email)
+        
+        // Atomically add a new region to the "regions" array field.
+        friendRef.updateData([
+            "friends": FieldValue.arrayUnion([newEmail])
+        ])
+    }
+    
+    
+    func updateOthersFriends(friendMail: String){
+        let friendRef = db.collection(collectionId).document(friendMail)
         
         // Atomically add a new region to the "regions" array field.
         friendRef.updateData([

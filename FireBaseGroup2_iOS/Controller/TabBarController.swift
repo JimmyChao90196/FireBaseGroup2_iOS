@@ -36,11 +36,7 @@ class TabBarController: UITabBarController{
             }
             
             
-            
-            
-            let source = document.metadata.hasPendingWrites ? "Local" : "Server"
-            
-            print(document.data())
+            //let source = document.metadata.hasPendingWrites ? "Local" : "Server"
             
             guard let data = document.data() else{ return }
             
@@ -52,8 +48,8 @@ class TabBarController: UITabBarController{
                 if let userInfo = try? decoder.decode(UserInfo.self, from: jsonData) {
                     
                     // Now you can use userInfo object
-                    print(userInfo.name)
-                    print(userInfo.email)
+                    //print(userInfo.name)
+                    //print(userInfo.email)
                     print(userInfo.requests)
                     print(userInfo.friends)
                     
@@ -67,7 +63,7 @@ class TabBarController: UITabBarController{
                         if let requestVc = nvc.viewControllers.first as? RequestViewController{
                             
                             DispatchQueue.main.async {
-                                requestVc.tableView.reloadData()
+                                //requestVc.tableView.reloadData()
                             }
                         }
                         
@@ -75,12 +71,9 @@ class TabBarController: UITabBarController{
                         if let friendVc = nvc.viewControllers.first as? FriendViewController{
                             
                             DispatchQueue.main.async {
-                                friendVc.tableView.reloadData()
+                                //friendVc.tableView.reloadData()
                             }
                         }
-                       
-                        
-                        
                     }
                 }
             }

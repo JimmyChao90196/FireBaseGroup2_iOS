@@ -25,6 +25,13 @@ class RequestViewController: UIViewController{
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    
+    
     func addTo(){
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,16 +86,16 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource{
             //print(indexPathToDelete.row)
             
             self.firestoreManager.user?.requests.remove(at: indexPathToDelete.row)
+            self.firestoreManager.updateMyFriends(newEmail: emailToMove)
+            self.firestoreManager.updateOthersFriends(friendMail: emailToMove)
+        
+            
             
             DispatchQueue.main.async {
                 tableView.reloadData()
             }
-            
-            
         }
-        
         return cell
-        
     }
 }
 
