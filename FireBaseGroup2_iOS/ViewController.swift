@@ -58,11 +58,31 @@ class ViewController: UIViewController {
         setUpLayouts()
         setUpActions()
         
+        
         tagField.delegate = self
         contentTextField.delegate = self
         titleTextField.delegate = self
-      
+        
+        
+        //Bar button
+        let barButton = UIBarButtonItem(title: "Check posts", style: .plain, target: self, action: #selector(checkpost))
+        navigationItem.rightBarButtonItem = barButton
+        
+        
+        //Realtime observation
+        firestoreManager.db.collection("articles").addSnapshotListener { documentSnapshot, error in
+            
+            guard let documentSnapshot = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            
+            documentSnapshot.documents.forEach { document in
+                print("\(document.documentID)")
+            }
+        }
     }
+    
     private func setUpLayouts() {
         view.addSubview(titleTextField)
         view.addSubview(contentTextField)
@@ -96,12 +116,29 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Button pressed -
+    @objc func checkpost() {
+        
+        firestoreManager.fetchData()
+//        let vc = PostTableViewController()
+//        present(vc, animated: true)
+    }
+    
+    
+    
     @objc func publishButtonPressed(_ sender: UIButton) {
         
         guard let title = titleTextField.text, !title.isEmpty,
               let tag = tagField.text, !tag.isEmpty,
-              let content = contentTextField.text, !content.isEmpty
-        else{fatalError("fields can not be empty")}
+              let content = contentTextField.text, !content.isEmpty else{
+            
+            let alertController = UIAlertController(title: "Error", message: "Fields shouldn't be empty", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Ok", style: .default)
+            alertController.addAction(alertAction)
+            
+            present(alertController, animated: true)
+            
+            return
+        }
         
         let tagArray = tag.components(separatedBy: " ")
         
@@ -112,6 +149,7 @@ class ViewController: UIViewController {
             tag: tagArray,
             createdTime: Timestamp(date: Date())
         )
+        firestoreManager.fetchData()
     }
 }
 

@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 import FirebaseFirestore
 
+
+
+
 struct Article: Codable {
     
     var id: String
@@ -28,7 +31,7 @@ struct Article: Codable {
     }
     
     init( id: String, title: String, content: String, tag: [String], createdTime: Timestamp) {
-        self.authorId = "Jimmy"
+        self.authorId = "Jimmy_83935"
         self.createdTime = createdTime
         self.id = id
         self.title = title

@@ -7,47 +7,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "76114D7B-EEF7-4683-A2F5-C4EB61679CEB"
-            shouldBeEnabled = "No"
+            uuid = "CC9569D9-8C5B-4CAC-88E8-BD046305B30B"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FireBaseGroup2_iOS/Article.swift"
+            filePath = "FireBaseGroup2_iOS/FirestoreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "init(id:title:content:tag:createdTime:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "publishData()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "76114D7B-EEF7-4683-A2F5-C4EB61679CEB - 2bde89fb57d4f729"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FireBaseGroup2_iOS.Article.init(id: Swift.String, title: Swift.String, content: Swift.String, tag: Swift.Array&lt;Swift.String&gt;, createdTime: __C.FIRTimestamp) -&gt; FireBaseGroup2_iOS.Article"
-                  moduleName = "FireBaseGroup2_iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jimmychao/Desktop/AppWorks_Shcool/FireBaseGroup2_iOS/FireBaseGroup2_iOS/Article.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "196">
-               </Location>
-               <Location
-                  uuid = "76114D7B-EEF7-4683-A2F5-C4EB61679CEB - 2bde89fb57d4f729"
+                  uuid = "CC9569D9-8C5B-4CAC-88E8-BD046305B30B - aac22dba475cdd6a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "FireBaseGroup2_iOS.Article.init(id: Swift.String, title: Swift.String, content: Swift.String, tag: Swift.Array&lt;Swift.String&gt;, createdTime: __C.FIRTimestamp) -&gt; FireBaseGroup2_iOS.Article"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FireBaseGroup2_iOS.FirestoreManager.publishData() -&gt; ()"
                   moduleName = "FireBaseGroup2_iOS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jimmychao/Desktop/AppWorks_Shcool/FireBaseGroup2_iOS/FireBaseGroup2_iOS/Article.swift"
+                  urlString = "file:///Users/jimmychao/Desktop/AppWorks_Shcool/FireBaseGroup2_iOS/FireBaseGroup2_iOS/FirestoreManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "176">
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "CC9569D9-8C5B-4CAC-88E8-BD046305B30B - aac22dba475cdcb4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FireBaseGroup2_iOS.FirestoreManager.publishData() -&gt; ()"
+                  moduleName = "FireBaseGroup2_iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jimmychao/Desktop/AppWorks_Shcool/FireBaseGroup2_iOS/FireBaseGroup2_iOS/FirestoreManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "128">
                </Location>
             </Locations>
          </BreakpointContent>

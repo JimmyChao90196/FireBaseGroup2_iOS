@@ -42,6 +42,8 @@
 		7456A00B2AE6416A0016C906 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7456A0092AE6416A0016C906 /* Main.storyboard */; };
 		7456A00D2AE6416B0016C906 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7456A00C2AE6416B0016C906 /* Assets.xcassets */; };
 		7456A0102AE6416B0016C906 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7456A00E2AE6416B0016C906 /* LaunchScreen.storyboard */; };
+		74C6F27E2AE760D60051F3DB /* PostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C6F27D2AE760D60051F3DB /* PostTableViewController.swift */; };
+		74C6F2802AE7649D0051F3DB /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C6F27F2AE7649D0051F3DB /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		7456A00C2AE6416B0016C906 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7456A00F2AE6416B0016C906 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7456A0112AE6416B0016C906 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74C6F27D2AE760D60051F3DB /* PostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewController.swift; sourceTree = "<group>"; };
+		74C6F27F2AE7649D0051F3DB /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 		74569FF72AE6416A0016C906 = {
 			isa = PBXGroup;
 			children = (
+				74C6F27F2AE7649D0051F3DB /* TableViewCell.swift */,
 				7456A0022AE6416A0016C906 /* FireBaseGroup2_iOS */,
 				7456A0012AE6416A0016C906 /* Products */,
 			);
@@ -119,6 +124,7 @@
 				7456A0032AE6416A0016C906 /* AppDelegate.swift */,
 				7456A0052AE6416A0016C906 /* SceneDelegate.swift */,
 				7456A0072AE6416A0016C906 /* ViewController.swift */,
+				74C6F27D2AE760D60051F3DB /* PostTableViewController.swift */,
 				743CE9432AE6C1280050F4CE /* Article.swift */,
 				7456A0092AE6416A0016C906 /* Main.storyboard */,
 				7456A00C2AE6416B0016C906 /* Assets.xcassets */,
@@ -232,10 +238,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				743CE9462AE6C1630050F4CE /* Firebase+Extension.swift in Sources */,
+				74C6F2802AE7649D0051F3DB /* TableViewCell.swift in Sources */,
 				7456A0082AE6416A0016C906 /* ViewController.swift in Sources */,
 				7456A0042AE6416A0016C906 /* AppDelegate.swift in Sources */,
 				7456A0062AE6416A0016C906 /* SceneDelegate.swift in Sources */,
 				743CE9422AE6C0770050F4CE /* FirestoreManager.swift in Sources */,
+				74C6F27E2AE760D60051F3DB /* PostTableViewController.swift in Sources */,
 				743CE9442AE6C1280050F4CE /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
