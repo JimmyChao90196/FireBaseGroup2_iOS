@@ -1,17 +1,20 @@
 //
-//  TableViewCell.swift
+//  RequestTableViewCell.swift
 //  FireBaseGroup2_iOS
 //
 //  Created by JimmyChao on 2023/10/24.
 //
 
-
 import UIKit
-import Foundation
+import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
-class PostCell: UITableViewCell {
+
+
+class FriendTableViewCell: UITableViewCell {
     
-    static let reuseIdentifier = String(describing: PostCell.self)
+    static let reuseIdentifier = String(describing: FriendTableViewCell.self)
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

@@ -44,16 +44,16 @@ struct UserInfo: Codable {
     var id: String
     var name: String
     var email: String
-    var request: [String]
-    var friend: [String]
+    var requests: [String]
+    var friends: [String]
     
 
-    init(id: String, name: String, email: String, request: [String], friend: [String]) {
-        self.id = id
+    init(name: String, email: String, requests: [String], friends: [String]) {
+        self.id = name + "-48503"
         self.name = name
         self.email = email
-        self.request = request
-        self.friend = friend
+        self.requests = requests
+        self.friends = friends
     }
 }
 

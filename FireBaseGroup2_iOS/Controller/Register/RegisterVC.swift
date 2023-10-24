@@ -12,7 +12,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 
-class PublishViewController: UIViewController {
+class RegisterViewController: UIViewController {
     
     let firestoreManager = FirestoreManager.shared
     
@@ -21,7 +21,7 @@ class PublishViewController: UIViewController {
         nameTextField.textColor = .black
         nameTextField.layer.borderColor = UIColor.black.cgColor
         nameTextField.layer.borderWidth = 1.0
-        nameTextField.placeholder = "Please enter the title"
+        nameTextField.placeholder = "Please enter your name"
         return nameTextField
     }()
     
@@ -30,7 +30,7 @@ class PublishViewController: UIViewController {
         emailTextField.textColor = .black
         emailTextField.layer.borderColor = UIColor.black.cgColor
         emailTextField.layer.borderWidth = 1.0
-        emailTextField.placeholder = "Please enter the content"
+        emailTextField.placeholder = "Please enter your email"
         return emailTextField
     }()
     
@@ -47,25 +47,26 @@ class PublishViewController: UIViewController {
     //MARK: - viewDidLoad -
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         configureConstraint()
-        setUpActions()
+        setupButton()
         
         emailTextField.delegate = self
         nameTextField.delegate = self
         
-        //Realtime observation
-        firestoreManager.db.collection("users").addSnapshotListener { documentSnapshot, error in
-            
-            guard let documentSnapshot = documentSnapshot else {
-                print("Error fetching document: \(error!)")
-                return
-            }
-            
-            documentSnapshot.documents.forEach { document in
-                print("\(document.documentID)")
-            }
-        }
+        //Overall Realtime observation
+//        firestoreManager.db.collection("users")
+//            .addSnapshotListener { documentSnapshot, error in
+//            
+//            guard let documentSnapshot = documentSnapshot else {
+//                print("Error fetching document: \(error!)")
+//                return
+//            }
+//            documentSnapshot.documents.forEach { document in
+//                print("\(document.documentID)")
+//            }
+//        }
+        
     }
     
     
@@ -93,37 +94,48 @@ class PublishViewController: UIViewController {
         ])
     }
     
-    private func setUpActions() {
+    private func setupButton() {
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
     }
     
     // MARK: - Button pressed -
-    
     @objc func loginButtonPressed(_ sender: UIButton) {
         
-        guard let title = nameTextField.text, !title.isEmpty,
-              let content = emailTextField.text, !content.isEmpty else{
+        guard let name = nameTextField.text, !name.isEmpty,
+              let email = emailTextField.text, !email.isEmpty else{
             
             let alertController = UIAlertController(title: "Error", message: "Fields shouldn't be empty", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "Ok", style: .default)
             alertController.addAction(alertAction)
             
             present(alertController, animated: true)
-            
             return
         }
+       
         
+        let mockRequests = [
+            "chris@gmail.com",
+            "billy@gmail.com",
+            "aaron@gmail.com"
+        ]
+        
+        let mockFriends = [
+            "chris@gmail.com",
+            "billy@gmail.com",
+            "aaron@gmail.com"
+        ]
+        
+        firestoreManager.email = email
+        firestoreManager.user = UserInfo(name: name, email: email, requests: mockRequests, friends: mockFriends)
         
         print(nameTextField.text)
         print(emailTextField.text)
-        
-        
     }
 }
 
 
 //MARK: - Delegate methods -
-extension PublishViewController: UITextFieldDelegate{
+extension RegisterViewController: UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField{
