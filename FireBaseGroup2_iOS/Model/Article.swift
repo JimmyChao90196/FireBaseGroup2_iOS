@@ -10,8 +10,6 @@ import UIKit
 import FirebaseFirestore
 
 
-
-
 struct Article: Codable {
     
     var id: String
@@ -42,10 +40,21 @@ struct Article: Codable {
 
 
 
-
-
-struct User: Codable{
+struct UserInfo: Codable {
     var id: String
-    var email: String
     var name: String
+    var email: String
+    var request: [String]
+    var friend: [String]
+    
+
+    init(id: String, name: String, email: String, request: [String], friend: [String]) {
+        self.id = id
+        self.name = name
+        self.email = email
+        self.request = request
+        self.friend = friend
+    }
 }
+
+

@@ -19,24 +19,28 @@ class FirestoreManager {
         db.collection("articles").document()
     }
     
-    var documentID: String {
-        "\(articleRef.documentID)"
+    var userRef: DocumentReference {
+        db.collection("users").document()
     }
+    
+    
+    
     
     var article: Article? {
         didSet {
-            publishData()
+            RegisterUser()
         }
     }
+    
+    var user: UserInfo = UserInfo(id: "", name: "", email: "", request: [""], friend: [""])
     
     var articles: [String: Any]?
     
     
-    
-    private func publishData() {
+    private func RegisterUser() {
         
         do {
-            try db.collection("articles").document(documentID).setData(from: article){ (error) in
+            try db.collection("articles").document(userRef.documentID).setData(from: article){ (error) in
                 if let error = error {
                     print("There was an issue saving data to firestore, \(error)")
                 } else {
@@ -46,8 +50,7 @@ class FirestoreManager {
                 }
             }
             
-            
-            db.collection("articles").document(documentID).updateData([
+            db.collection("articles").document(userRef.documentID).updateData([
                 "created_time": FieldValue.serverTimestamp(),
             ]) { err in
                 if let err = err {
@@ -56,39 +59,32 @@ class FirestoreManager {
                     print("Document successfully updated")
                 }
             }
-            
-            
-            
-            
-            
-            
         } catch {
             print("Error encoding data: \(error)")
         }
-        
     }
     
-     func fetchData() {
+    
+    
+    
+    
+    
+    func fetchData() {
         
-        db.collection("articles")
-            .order(by: "created_time")
-            .getDocuments(completion: { (querySnapshot, error) in
-                
-                if let error = error {
-                    print("There's an issue retrieving data from Firestroe. \(error)")
-                } else {
-                    if let snapshotDocuments = querySnapshot?.documents {
+        db.collection("users").getDocuments(completion: { (querySnapshot, error) in
+            if let error = error {
+                print("There's an issue retrieving data from Firestroe. \(error)")
+            } else {
+                if let snapshotDocuments = querySnapshot?.documents {
+                    
+                    for doc in snapshotDocuments {
                         
-                        for doc in snapshotDocuments {
-                            
-                            let data = doc.data()
-                            
-                            self.articles = data
-                            
-                            print(self.articles)
-                        }
+                        let data = doc.data()
+                        
+                        print(data)
                     }
                 }
-            })
-    }    
+            }
+        })
+    }
 }

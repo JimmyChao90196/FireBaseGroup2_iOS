@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
+
+
 
 class PostTableViewController: UITableViewController {
 
-    
     let firestoreManager = FirestoreManager.shared
     
     override func viewDidLoad() {
