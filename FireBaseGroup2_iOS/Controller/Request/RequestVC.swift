@@ -23,9 +23,11 @@ class RequestViewController: UIViewController{
         addTo()
         configureConstraint()
         
-        firestoreManager.fetchNewData()
-        tableView.reloadData()
-        
+        firestoreManager.fetchNewData {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
         
         navigationItem.title = "\(firestoreManager.email)"
         
@@ -36,8 +38,12 @@ class RequestViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        firestoreManager.fetchNewData()
-        tableView.reloadData()
+        firestoreManager.fetchNewData {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
     }
     
     

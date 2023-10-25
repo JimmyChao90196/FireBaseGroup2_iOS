@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "57D14089-1225-4D84-BEF0-9DFAA62DA47C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FireBaseGroup2_iOS/Controller/Register/RegisterVC.swift"
@@ -23,49 +23,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CF568289-4D84-473E-9C74-96FC070498BF"
-            shouldBeEnabled = "Yes"
+            uuid = "3474E2B4-36B9-45E5-BC47-F76833C88EB3"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FireBaseGroup2_iOS/Controller/TabBarController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "tabBarController(_:shouldSelect:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "CF568289-4D84-473E-9C74-96FC070498BF - 9de220a91abd2871"
+                  uuid = "3474E2B4-36B9-45E5-BC47-F76833C88EB3 - e98d385184252488"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "FireBaseGroup2_iOS.TabBarController.tabBarController(_: __C.UITabBarController, shouldSelect: __C.UIViewController) -&gt; Swift.Bool"
+                  symbolName = "FireBaseGroup2_iOS.TabBarController.viewDidLoad() -&gt; ()"
                   moduleName = "FireBaseGroup2_iOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jimmychao/Desktop/AppWorks_Shcool/FireBaseGroup2_iOS/FireBaseGroup2_iOS/Controller/TabBarController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "84">
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "596">
                </Location>
                <Location
-                  uuid = "CF568289-4D84-473E-9C74-96FC070498BF - 9de220a91abd298d"
+                  uuid = "3474E2B4-36B9-45E5-BC47-F76833C88EB3 - d7f2e4910b757178"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "FireBaseGroup2_iOS.TabBarController.tabBarController(_: __C.UITabBarController, shouldSelect: __C.UIViewController) -&gt; Swift.Bool"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FireBaseGroup2_iOS.TabBarController.viewDidLoad() -&gt; ()"
                   moduleName = "FireBaseGroup2_iOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jimmychao/Desktop/AppWorks_Shcool/FireBaseGroup2_iOS/FireBaseGroup2_iOS/Controller/TabBarController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "96">
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "188">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D76EBDA3-BC4A-43FE-9224-4AA39B2ED046"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FireBaseGroup2_iOS/Controller/Request/RequestVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C8B00B0-9618-46AD-9101-CE5778238468"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FireBaseGroup2_iOS/Controller/Request/RequestVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

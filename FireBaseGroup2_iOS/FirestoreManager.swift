@@ -45,7 +45,7 @@ class FirestoreManager {
         }
     }
     
-    var email: String = ""
+    var email: String = "jimmy@gmail.com"
     var friendMail: String = ""
     
     
@@ -202,7 +202,7 @@ class FirestoreManager {
     
     
     
-    func fetchNewData(){
+    func fetchNewData( completion: @escaping()->Void ){
         let docRef = db.collection(collectionId).document(email)
         
         docRef.getDocument { (document, error) in
@@ -220,6 +220,8 @@ class FirestoreManager {
                     if let userInfo = try? decoder.decode(UserInfo.self, from: jsonData) {
                         
                         self.user = userInfo
+                        
+                        completion()
                         // Now you can use userInfo object
                         //print(userInfo.name)
                         //print(userInfo.email)

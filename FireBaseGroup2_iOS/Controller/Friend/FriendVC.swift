@@ -22,8 +22,11 @@ class FriendViewController: UIViewController{
         addTo()
         configureConstraint()
         
-        firestoreManager.fetchNewData()
-        tableView.reloadData()
+        firestoreManager.fetchNewData {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
         
         //Set navigation title
         navigationItem.title = "\(firestoreManager.email)"
@@ -33,10 +36,13 @@ class FriendViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
         
-        firestoreManager.fetchNewData()
-        tableView.reloadData()
+        firestoreManager.fetchNewData {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+
     }
     
     

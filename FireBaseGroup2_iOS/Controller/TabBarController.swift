@@ -15,26 +15,19 @@ import FirebaseFirestoreSwift
 class TabBarController: UITabBarController{
     
     let firestoreManager = FirestoreManager.shared
-    let collectionId = FirestoreManager.shared.email
-    let isLoggedIn = false
+    let collectionId = FirestoreManager.shared.collectionId
+    var isLoggedIn = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        
-        let email = firestoreManager.email
+        let email = "jimmy@gmail.com"
         
         self.delegate = self
         
-        
-        
         //Listening to loginEvent
         NotificationCenter.default.addObserver(self, selector: #selector(emailFetched), name: NSNotification.Name("loggedInNotify"), object: nil)
-        
-        
         
         
         //Listening to firestore db
@@ -59,8 +52,8 @@ class TabBarController: UITabBarController{
                     //Now you can use userInfo object
                     //print(userInfo.name)
                     //print(userInfo.email)
-                    print("Print all friends \(userInfo.requests)")
-                    print("Print all requests \(userInfo.friends)")
+                    print("Print all requests \(userInfo.requests)")
+                    print("Print all friends \(userInfo.friends)")
                 }
             }
         }
@@ -72,7 +65,7 @@ class TabBarController: UITabBarController{
     @objc func emailFetched(notification: NSNotification){
 
         guard let email = notification.object as? String else{ print("email found nil"); return }
-
+        isLoggedIn = true
     }
 }
 
@@ -81,9 +74,7 @@ class TabBarController: UITabBarController{
 
 
 extension TabBarController: UITabBarControllerDelegate{
-    
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        
         
         if let navigationController = viewController as? UINavigationController,
            let restorationIdentifier = navigationController.restorationIdentifier{
@@ -91,8 +82,16 @@ extension TabBarController: UITabBarControllerDelegate{
             switch restorationIdentifier {
             case "RegisterNVC":
                 
+                return true
+                
+                
+            default:
                 
                 if isLoggedIn{
+                    
+                    return true
+                    
+                }else{
                     
                     let alertController = UIAlertController(title: "Warning", message: "Please log in or register first", preferredStyle: .alert)
                     let alertAction = UIAlertAction(title: "Ok", style: .default)
@@ -102,27 +101,10 @@ extension TabBarController: UITabBarControllerDelegate{
                     
                     return false
                     
-                }else{
-                    
-                    return true
-                    
                 }
-                
-
-                
-                    
-                
-                
-            default:
-                
-                
-                print("Not just yet")
-                
-                return false
             }
         }
         return true
     }
-    
 }
 
