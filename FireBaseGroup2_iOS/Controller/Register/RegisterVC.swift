@@ -36,7 +36,7 @@ class RegisterViewController: UIViewController {
     
     private let loginButton: UIButton = {
         let loginButton = UIButton()
-        loginButton.setTitle("Publish", for: .normal)
+        loginButton.setTitle("Register / login", for: .normal)
         loginButton.backgroundColor = .black
         loginButton.layer.cornerRadius = 5.0
         return loginButton
@@ -53,19 +53,6 @@ class RegisterViewController: UIViewController {
         
         emailTextField.delegate = self
         nameTextField.delegate = self
-        
-        //Overall Realtime observation
-//        firestoreManager.db.collection("users")
-//            .addSnapshotListener { documentSnapshot, error in
-//            
-//            guard let documentSnapshot = documentSnapshot else {
-//                print("Error fetching document: \(error!)")
-//                return
-//            }
-//            documentSnapshot.documents.forEach { document in
-//                print("\(document.documentID)")
-//            }
-//        }
         
     }
     
@@ -95,11 +82,12 @@ class RegisterViewController: UIViewController {
     }
     
     private func setupButton() {
-        loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchDown)
+        loginButton.addTarget(self, action: #selector(loginButtonReleased), for: [.touchUpInside, .touchUpOutside])
     }
     
-    // MARK: - Button pressed -
-    @objc func loginButtonPressed(_ sender: UIButton) {
+    // MARK: - Button action -
+    @objc func loginButtonTapped(_ sender: UIButton) {
         
         guard let name = nameTextField.text, !name.isEmpty,
               let email = emailTextField.text, !email.isEmpty else{
@@ -111,27 +99,54 @@ class RegisterViewController: UIViewController {
             present(alertController, animated: true)
             return
         }
-       
+    }
+    
+    
+    
+    @objc func loginButtonReleased(_ sender: UIButton){
+        guard let email = emailTextField.text else{ return }
+        guard let name = nameTextField.text else{ return }
         
-        let mockRequests = [
-            "chris@gmail.com",
-            "billy@gmail.com",
-            "aaron@gmail.com"
-        ]
+        firestoreManager.findUser(inputEmail: email) { result in
+            switch result {
+            //Success
+            case .success(let email):  print(email)
+                                
+                let alertController = UIAlertController(title: "Register", message: "User don't exist, automatically registered", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "Ok", style: .default) { _ in
+                    let mockRequests =  [String]()
+                    let mockFriends = [String]()
+                    self.firestoreManager.email = email
+                    self.firestoreManager.user = UserInfo(name: name, email: email, requests: mockRequests, friends: mockFriends)
+                }
+                
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true)
+                
+                
+
+                
+            //Faild
+            case .failure(let err): print(err)
+                
+                let alertController = UIAlertController(title: "Success", message: "User already exist, automatically logged in", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "Ok", style: .default) { _ in
+                    self.firestoreManager.email = email
+                }
+                
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true)
+            }
+        }
         
-        let mockFriends = [
-            "chris@gmail.com",
-            "billy@gmail.com",
-            "aaron@gmail.com"
-        ]
-        
-        firestoreManager.email = email
-        firestoreManager.user = UserInfo(name: name, email: email, requests: mockRequests, friends: mockFriends)
-        
-        print(nameTextField.text)
-        print(emailTextField.text)
+        sender.backgroundColor = .gray
+        sender.setTitle("Already logged in", for: .normal)
+        sender.isEnabled = false
     }
 }
+
+
+
 
 
 //MARK: - Delegate methods -

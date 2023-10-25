@@ -12,6 +12,7 @@ import UIKit
 
 enum FirestoreError: Error{
     case userNotFound
+    case userAlreadyExist
 }
 
 
@@ -90,7 +91,7 @@ class FirestoreManager {
     
     
     //MARK: - Find user -
-    func findUser( completion: @escaping (Result<QueryDocumentSnapshot, Error>)->Void){
+    func findFriend( completion: @escaping (Result<QueryDocumentSnapshot, Error>)->Void){
         let colRef = db.collection(collectionId)
         let matchedQuery = colRef.whereField("email", isEqualTo: friendMail)
         matchedQuery.getDocuments { (querySnapshot, err) in
@@ -115,6 +116,42 @@ class FirestoreManager {
     }
     
     
+    func findUser(inputEmail: String ,completion: @escaping (Result<String, Error>)->Void){
+        let colRef = db.collection(collectionId)
+        let matchedQuery = colRef.whereField("email", isEqualTo: email)
+        matchedQuery.getDocuments { (querySnapshot, err) in
+            
+            //If user does not exist
+            if querySnapshot!.isEmpty{
+                completion(.success(inputEmail))
+                return
+            }
+            
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    //If user does exsit
+                    completion(.failure(FirestoreError.userAlreadyExist))
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     //MARK: - Send Request -
     func sendRequest(friendEmail: String){
         let requestRef = db.collection(collectionId).document(friendEmail)
@@ -126,7 +163,7 @@ class FirestoreManager {
     
     
     
- //MARK: - update friend -
+    //MARK: - update friend -
     func updateMyFriends(newEmail: String){
         let friendRef = db.collection(collectionId).document(email)
         
@@ -174,7 +211,7 @@ class FirestoreManager {
     
     
     func fetchNewData(){
-        let docRef = db.collection("jimmy").document(email)
+        let docRef = db.collection(collectionId).document(email)
         
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
@@ -206,8 +243,5 @@ class FirestoreManager {
                 }
             }
         }
-        
-        
     }
-
 }

@@ -58,7 +58,7 @@ class FindFriendsViewController: UIViewController {
         }
         
         firestoreManager.friendMail = email
-        firestoreManager.findUser { result in
+        firestoreManager.findFriend { result in
             switch result{
             case .success(let document):
                 let alertController = UIAlertController(title: "Success", message: "Do you wanna send friend request?", preferredStyle: .alert)
