@@ -22,11 +22,17 @@ class RequestViewController: UIViewController{
         
         addTo()
         configureConstraint()
+        
+        firestoreManager.fetchNewData()
+        tableView.reloadData()
+        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        firestoreManager.fetchNewData()
         tableView.reloadData()
     }
     

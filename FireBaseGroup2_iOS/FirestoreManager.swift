@@ -22,7 +22,7 @@ class FirestoreManager {
     
     let db =  Firestore.firestore()
     
-    var collectionId = "chris"
+    var collectionId = "jimmy"
     
     var articleRef: DocumentReference {
         db.collection("articles").document()
@@ -172,6 +172,42 @@ class FirestoreManager {
     }
     
     
-
+    
+    func fetchNewData(){
+        let docRef = db.collection("jimmy").document(email)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(dataDescription)")
+                
+                guard let data = document.data() else{ return }
+                
+                // Convert NSDictionary or Dictionary to a JSON object
+                if let jsonData = try? JSONSerialization.data(withJSONObject: data, options: []) {
+                    
+                    // Decode the JSON data to UserInfo object
+                    let decoder = JSONDecoder()
+                    if let userInfo = try? decoder.decode(UserInfo.self, from: jsonData) {
+                        
+                        self.user = userInfo
+                        // Now you can use userInfo object
+                        //print(userInfo.name)
+                        //print(userInfo.email)
+                        //print(userInfo.requests)
+                        //print(userInfo.friends)
+                    }
+                    
+                    
+                    
+                    
+                } else {
+                    print("Document does not exist")
+                }
+            }
+        }
+        
+        
+    }
 
 }
