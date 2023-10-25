@@ -16,6 +16,7 @@ class TabBarController: UITabBarController{
     
     let firestoreManager = FirestoreManager.shared
     let collectionId = FirestoreManager.shared.email
+    let isLoggedIn = false
     
     
     override func viewDidLoad() {
@@ -24,18 +25,25 @@ class TabBarController: UITabBarController{
         
         
         
-        let email = "jimmy@gmail.com"
+        let email = firestoreManager.email
+        
+        self.delegate = self
+        
+        
+        
+        //Listening to loginEvent
+        NotificationCenter.default.addObserver(self, selector: #selector(emailFetched), name: NSNotification.Name("loggedInNotify"), object: nil)
         
         
         
         
+        //Listening to firestore db
         firestoreManager.db.collection(collectionId).document(email).addSnapshotListener { documentSnapshot, error in
             
             guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
                 return
             }
-            
             
             let source = document.metadata.hasPendingWrites ? "Local" : "Server"
             
@@ -57,5 +65,64 @@ class TabBarController: UITabBarController{
             }
         }
     }
+    
+    
+    
+    //MARK: - loginEventDidHappend -
+    @objc func emailFetched(notification: NSNotification){
+
+        guard let email = notification.object as? String else{ print("email found nil"); return }
+
+    }
+}
+
+
+
+
+
+extension TabBarController: UITabBarControllerDelegate{
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        
+        if let navigationController = viewController as? UINavigationController,
+           let restorationIdentifier = navigationController.restorationIdentifier{
+            
+            switch restorationIdentifier {
+            case "RegisterNVC":
+                
+                
+                if isLoggedIn{
+                    
+                    let alertController = UIAlertController(title: "Warning", message: "Please log in or register first", preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "Ok", style: .default)
+                    
+                    alertController.addAction(alertAction)
+                    self.present(alertController, animated: true)
+                    
+                    return false
+                    
+                }else{
+                    
+                    return true
+                    
+                }
+                
+
+                
+                    
+                
+                
+            default:
+                
+                
+                print("Not just yet")
+                
+                return false
+            }
+        }
+        return true
+    }
+    
 }
 

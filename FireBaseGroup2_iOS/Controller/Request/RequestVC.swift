@@ -26,6 +26,10 @@ class RequestViewController: UIViewController{
         firestoreManager.fetchNewData()
         tableView.reloadData()
         
+        
+        navigationItem.title = "\(firestoreManager.email)"
+        
+        
     }
     
     

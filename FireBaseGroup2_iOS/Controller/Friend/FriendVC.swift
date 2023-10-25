@@ -25,6 +25,9 @@ class FriendViewController: UIViewController{
         firestoreManager.fetchNewData()
         tableView.reloadData()
         
+        //Set navigation title
+        navigationItem.title = "\(firestoreManager.email)"
+        
         
     }
     

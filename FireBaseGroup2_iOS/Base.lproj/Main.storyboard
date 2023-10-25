@@ -27,7 +27,7 @@
         <!--Register-->
         <scene sceneID="goY-Uw-Bk7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="icd-fz-cKP" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="RegisterNVC" storyboardIdentifier="RegisterNVC" automaticallyAdjustsScrollViewInsets="NO" id="icd-fz-cKP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Register" id="BVM-df-pl8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bhw-jW-p4A">
@@ -49,6 +49,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="5bV-LS-1pJ" customClass="TabBarController" customModule="FireBaseGroup2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dPy-EW-oJn">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -114,7 +115,7 @@
         <!--Find-->
         <scene sceneID="ss6-dw-qjf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9TS-tI-VbY" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="FindFriendsNVC" storyboardIdentifier="FindFriendsNVC" automaticallyAdjustsScrollViewInsets="NO" id="9TS-tI-VbY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Find" id="4H8-XJ-y2T"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Uw-cZ-ivd">
@@ -133,7 +134,7 @@
         <!--Request-->
         <scene sceneID="7TZ-KL-DTA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o1I-8H-PBH" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="RequestNVC" storyboardIdentifier="RequestNVC" automaticallyAdjustsScrollViewInsets="NO" id="o1I-8H-PBH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Request" id="dtc-xa-OnU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z3f-7N-5wm">
@@ -152,7 +153,7 @@
         <!--Friend-->
         <scene sceneID="GKb-CS-boY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wqN-ux-Cwa" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="FriendNVC" storyboardIdentifier="FriendNVC" automaticallyAdjustsScrollViewInsets="NO" id="wqN-ux-Cwa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friend" id="ZP0-XI-VCf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="46K-yx-hN1">

@@ -23,7 +23,7 @@ class FirestoreManager {
     
     let db =  Firestore.firestore()
     
-    var collectionId = "jimmy"
+    var collectionId = "users"
     
     var articleRef: DocumentReference {
         db.collection("articles").document()
@@ -45,7 +45,7 @@ class FirestoreManager {
         }
     }
     
-    var email: String = "jimmy@gmail.com"
+    var email: String = ""
     var friendMail: String = ""
     
     
@@ -141,15 +141,7 @@ class FirestoreManager {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     
     
     //MARK: - Send Request -

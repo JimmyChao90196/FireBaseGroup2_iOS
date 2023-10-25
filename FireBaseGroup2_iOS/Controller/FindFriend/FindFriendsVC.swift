@@ -35,6 +35,10 @@ class FindFriendsViewController: UIViewController {
         // Do any additional setup after loading the view.
         setup()
         configureConstraint()
+        
+        //Set navigation title
+        navigationItem.title = "\(firestoreManager.email)"
+        
     }
     
     

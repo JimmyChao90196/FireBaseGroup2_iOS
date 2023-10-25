@@ -20,5 +20,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF568289-4D84-473E-9C74-96FC070498BF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FireBaseGroup2_iOS/Controller/TabBarController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "tabBarController(_:shouldSelect:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CF568289-4D84-473E-9C74-96FC070498BF - 9de220a91abd2871"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FireBaseGroup2_iOS.TabBarController.tabBarController(_: __C.UITabBarController, shouldSelect: __C.UIViewController) -&gt; Swift.Bool"
+                  moduleName = "FireBaseGroup2_iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jimmychao/Desktop/AppWorks_Shcool/FireBaseGroup2_iOS/FireBaseGroup2_iOS/Controller/TabBarController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "CF568289-4D84-473E-9C74-96FC070498BF - 9de220a91abd298d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FireBaseGroup2_iOS.TabBarController.tabBarController(_: __C.UITabBarController, shouldSelect: __C.UIViewController) -&gt; Swift.Bool"
+                  moduleName = "FireBaseGroup2_iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jimmychao/Desktop/AppWorks_Shcool/FireBaseGroup2_iOS/FireBaseGroup2_iOS/Controller/TabBarController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

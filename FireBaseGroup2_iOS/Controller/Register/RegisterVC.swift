@@ -120,6 +120,7 @@ class RegisterViewController: UIViewController {
                     self.firestoreManager.user = UserInfo(name: name, email: email, requests: mockRequests, friends: mockFriends)
                     
                     //Set title
+                    NotificationCenter.default.post(name: .loggedInNotify, object: email)
                     self.setNavTitle()
                     
                 }
@@ -138,6 +139,7 @@ class RegisterViewController: UIViewController {
                     self.firestoreManager.email = email
                     
                     //Set title
+                    NotificationCenter.default.post(name: .loggedInNotify, object: email)
                     self.setNavTitle()
                 }
                 
@@ -179,3 +181,10 @@ extension RegisterViewController: UITextFieldDelegate{
     }
 }
 
+
+
+
+//MARK: - Define notification name -
+extension Notification.Name{
+    static let loggedInNotify = Notification.Name("loggedInNotify")
+}
