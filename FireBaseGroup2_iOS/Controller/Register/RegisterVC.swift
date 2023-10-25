@@ -67,7 +67,7 @@ class RegisterViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
-            nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
             nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
@@ -118,6 +118,10 @@ class RegisterViewController: UIViewController {
                     let mockFriends = [String]()
                     self.firestoreManager.email = email
                     self.firestoreManager.user = UserInfo(name: name, email: email, requests: mockRequests, friends: mockFriends)
+                    
+                    //Set title
+                    self.setNavTitle()
+                    
                 }
                 
                 alertController.addAction(alertAction)
@@ -132,6 +136,9 @@ class RegisterViewController: UIViewController {
                 let alertController = UIAlertController(title: "Success", message: "User already exist, automatically logged in", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "Ok", style: .default) { _ in
                     self.firestoreManager.email = email
+                    
+                    //Set title
+                    self.setNavTitle()
                 }
                 
                 alertController.addAction(alertAction)
@@ -145,6 +152,18 @@ class RegisterViewController: UIViewController {
     }
 }
 
+
+//MARK: - Additionaly function
+extension RegisterViewController{
+    
+    func setNavTitle(){
+        let navTitle = UILabel()
+        navTitle.text = firestoreManager.email
+        navTitle.font = UIFont.systemFont(ofSize: 20)
+        navTitle.textColor = .black
+        self.navigationItem.titleView = navTitle
+    }
+}
 
 
 

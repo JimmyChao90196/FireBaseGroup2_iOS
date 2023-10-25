@@ -51,8 +51,8 @@ class TabBarController: UITabBarController{
                     //Now you can use userInfo object
                     //print(userInfo.name)
                     //print(userInfo.email)
-                    print(userInfo.requests)
-                    print(userInfo.friends)
+                    print("Print all friends \(userInfo.requests)")
+                    print("Print all requests \(userInfo.friends)")
                 }
             }
         }

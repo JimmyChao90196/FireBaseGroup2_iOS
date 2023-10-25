@@ -118,7 +118,7 @@ class FirestoreManager {
     
     func findUser(inputEmail: String ,completion: @escaping (Result<String, Error>)->Void){
         let colRef = db.collection(collectionId)
-        let matchedQuery = colRef.whereField("email", isEqualTo: email)
+        let matchedQuery = colRef.whereField("email", isEqualTo: inputEmail)
         matchedQuery.getDocuments { (querySnapshot, err) in
             
             //If user does not exist
